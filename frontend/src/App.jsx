@@ -1,12 +1,15 @@
-import WelcomeScreen from './WelcomeScreen';
- 
+import { Routes, Route } from "react-router-dom";
+
+import WelcomeScreen from "./WelcomeScreen";
+import Dashboard from "./pages/Dashboard";
+
 function App() {
   return (
-    <div className="app">
-      <WelcomeScreen />
-    </div>
+    <Routes>
+      <Route path="/" element={<WelcomeScreen />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
   );
 }
- 
+
 export default App;
- 

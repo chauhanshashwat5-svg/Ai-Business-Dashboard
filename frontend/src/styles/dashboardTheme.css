@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* ---------- Executive Dark design tokens (see DESIGN.md) ---------- */
+.dash-theme{
+  --dash-bg:#08111E;
+  --dash-card-bg:rgba(15,26,42,0.8);
+  --dash-card-border:rgba(30,41,59,0.5);
+  --dash-surface-container:#1f1f28;
+  --dash-surface-container-low:#1b1b24;
+  --dash-surface-container-high:#2a2933;
+  --dash-surface-container-highest:#35343e;
+  --dash-on-surface:#e4e1ee;
+  --dash-on-surface-variant:#c7c4d8;
+  --dash-outline-variant:#464555;
+  --dash-primary:#c4c0ff;
+  --dash-primary-container:#8781ff;
+  --dash-on-primary-container:#1b0091;
+  --dash-secondary:#7bd0ff;
+  --dash-on-secondary-container:#00374d;
+  --dash-tertiary:#ffb785;
+  --dash-error:#ffb4ab;
+  --dash-font-display:'Hanken Grotesk',sans-serif;
+  --dash-font-body:'Inter',-apple-system,sans-serif;
+
+  background:var(--dash-bg);
+  color:var(--dash-on-surface);
+  font-family:var(--dash-font-body);
+  min-height:100%;
+}
+.dash-theme *{box-sizing:border-box;}
+.dash-theme .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'opsz' 24;font-size:20px;line-height:1;vertical-align:middle;}
+
+/* ---------- Typography ---------- */
+.dash-display-lg{font-family:var(--dash-font-display);font-size:48px;font-weight:700;line-height:56px;letter-spacing:-0.02em;}
+.dash-headline-lg{font-family:var(--dash-font-display);font-size:32px;font-weight:600;line-height:40px;letter-spacing:-0.01em;}
+.dash-headline-md{font-family:var(--dash-font-display);font-size:24px;font-weight:600;line-height:32px;}
+.dash-title-lg{font-size:18px;font-weight:600;line-height:28px;}
+.dash-body-lg{font-size:16px;font-weight:400;line-height:24px;}
+.dash-body-md{font-size:14px;font-weight:400;line-height:20px;}
+.dash-label-md{font-size:12px;font-weight:500;line-height:16px;letter-spacing:0.05em;}
+.dash-muted{color:var(--dash-on-surface-variant);}
+
+/* ---------- Layout ---------- */
+.dash-page{padding:32px;max-width:1600px;margin:0 auto;}
+.dash-page-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:32px;}
+
+/* ---------- Glass card ---------- */
+.dash-glass-card{
+  background:var(--dash-card-bg);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--dash-card-border);
+  box-shadow:0 4px 30px rgba(0,0,0,0.4);
+  border-radius:20px;
+}
+
+/* ---------- KPI cards ---------- */
+.dash-kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-bottom:32px;}
+.dash-kpi-card{padding:24px;transition:transform .2s ease;}
+.dash-kpi-card:hover{transform:translateY(-4px);}
+.dash-kpi-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+.dash-icon-badge{padding:8px;border-radius:10px;display:flex;align-items:center;justify-content:center;}
+.dash-icon-badge--primary{background:rgba(196,192,255,0.1);color:var(--dash-primary);}
+.dash-icon-badge--secondary{background:rgba(123,208,255,0.1);color:var(--dash-secondary);}
+.dash-icon-badge--tertiary{background:rgba(255,183,133,0.1);color:var(--dash-tertiary);}
+.dash-delta{display:flex;align-items:center;gap:2px;font-size:12px;font-weight:500;}
+.dash-delta--up{color:var(--dash-secondary);}
+.dash-delta--down{color:var(--dash-error);}
+.dash-kpi-value{font-family:var(--dash-font-display);font-size:24px;font-weight:600;line-height:32px;margin-bottom:2px;}
+.dash-kpi-label{color:var(--dash-on-surface-variant);font-size:12px;font-weight:500;letter-spacing:0.05em;}
+.dash-sparkline{display:flex;align-items:flex-end;gap:3px;height:32px;margin-top:16px;}
+.dash-sparkline-bar{flex:1;border-radius:2px 2px 0 0;background:rgba(196,192,255,0.2);}
+.dash-sparkline-bar--active{background:var(--dash-primary);}
+
+/* ---------- Section cards ---------- */
+.dash-section-card{padding:32px;}
+.dash-section-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:24px;}
+.dash-pill-group{display:flex;background:var(--dash-surface-container);border-radius:9999px;padding:4px;gap:2px;}
+.dash-pill{padding:8px 16px;border-radius:9999px;font-size:13px;font-weight:500;color:var(--dash-on-surface-variant);background:transparent;border:none;cursor:pointer;transition:all .15s;}
+.dash-pill--active{background:var(--dash-primary);color:var(--dash-on-primary-container);}
+
+/* ---------- Badges / status pills ---------- */
+.dash-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:9999px;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;border:1px solid transparent;}
+.dash-badge--success{background:rgba(123,208,255,0.1);color:var(--dash-secondary);border-color:rgba(123,208,255,0.2);}
+.dash-badge--info{background:rgba(196,192,255,0.1);color:var(--dash-primary);border-color:rgba(196,192,255,0.2);}
+.dash-badge--error{background:rgba(255,180,171,0.1);color:var(--dash-error);border-color:rgba(255,180,171,0.2);}
+.dash-badge--warning{background:rgba(255,183,133,0.1);color:var(--dash-tertiary);border-color:rgba(255,183,133,0.2);}
+
+/* ---------- Table ---------- */
+.dash-table{width:100%;text-align:left;border-collapse:collapse;}
+.dash-table thead{background:rgba(31,31,40,0.5);border-bottom:1px solid rgba(70,69,85,0.1);}
+.dash-table th{padding:16px 24px;font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--dash-on-surface-variant);}
+.dash-table td{padding:16px 24px;border-bottom:1px solid rgba(70,69,85,0.1);font-size:14px;}
+.dash-table tr:hover td{background:rgba(31,31,40,0.3);}
+.dash-avatar-chip{width:32px;height:32px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;}
+
+/* ---------- Upload / empty state ---------- */
+.dash-empty-wrap{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 64px);padding:32px;}
+.dash-empty-card{max-width:640px;width:100%;padding:48px;text-align:center;}
+.dash-upload-zone{
+  border:1.5px dashed var(--dash-outline-variant);
+  border-radius:20px;
+  padding:48px 24px;
+  margin:32px 0 24px;
+  transition:border-color .15s, background .15s;
+  cursor:pointer;
+}
+.dash-upload-zone:hover,
+.dash-upload-zone--active{
+  border-color:var(--dash-primary);
+  background:rgba(196,192,255,0.04);
+}
+.dash-upload-icon{
+  width:56px;height:56px;border-radius:16px;margin:0 auto 16px;
+  background:rgba(196,192,255,0.1);color:var(--dash-primary);
+  display:flex;align-items:center;justify-content:center;
+}
+.dash-format-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px;}
+.dash-format-chip{
+  display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:9999px;
+  background:var(--dash-surface-container);border:1px solid var(--dash-outline-variant);
+  font-size:12px;color:var(--dash-on-surface-variant);
+}
+.dash-format-chip .material-symbols-outlined{font-size:15px;}
+
+/* ---------- Buttons ---------- */
+.dash-btn-primary{
+  padding:12px 24px;border-radius:9999px;border:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--dash-primary),var(--dash-secondary));
+  color:#0e0d16;font-weight:700;font-size:14px;transition:filter .15s, transform .1s;
+}
+.dash-btn-primary:hover{filter:brightness(1.1);}
+.dash-btn-primary:active{transform:scale(0.97);}
+.dash-btn-ghost{
+  padding:12px 20px;border-radius:9999px;cursor:pointer;
+  background:transparent;color:var(--dash-on-surface-variant);
+  border:1px solid var(--dash-outline-variant);font-size:14px;font-weight:500;
+  transition:border-color .15s,color .15s;
+}
+.dash-btn-ghost:hover{border-color:var(--dash-primary);color:var(--dash-on-surface);}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1200px){
+  .dash-kpi-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:900px){
+  .dash-section-row{grid-template-columns:1fr !important;}
+}
+@media (max-width:640px){
+  .dash-kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .dash-page{padding:20px;}
+  .dash-section-card{padding:20px;}
+}
